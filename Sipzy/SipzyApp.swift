@@ -11,3 +11,5 @@ struct SipzyApp: App {
         }
     }
 }
+
+// latitude: 40.8365395, longitude: 14.30615
