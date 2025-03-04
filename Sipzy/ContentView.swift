@@ -4,11 +4,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var favorites: [String: Bool] = [
+            "Club1": false,
+            "Club2": false,
+            "Club3": false
+        ]
+    
     var body: some View {
         TabView {
-            CupsView().tabItem { Image(systemName: "wineglass") }
+            CupsView(favorites: $favorites)
+                .tabItem { Image(systemName: "wineglass") }
             MapView().tabItem { Image(systemName: "map") }
-            FavouriteView().tabItem { Image(systemName: "star") }
+            FavouriteView(favorites: $favorites)
+                .tabItem { Image(systemName: "star") }
             ProfileView().tabItem { Image(systemName: "person.crop.circle") }
         }
         .accentColor(.white)
