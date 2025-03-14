@@ -1,14 +1,7 @@
-// ContentView.swift
-// (c) Alex Fila 26/02/25
-
 import SwiftUI
 
 struct ContentView: View {
-    @State private var favorites: [String: Bool] = [
-            "Club1": false,
-            "Club2": false,
-            "Club3": false
-        ]
+    @State private var favorites: [String: Bool] = Dictionary(uniqueKeysWithValues: clubs.map { ($0.name, false) })
     
     var body: some View {
         TabView {

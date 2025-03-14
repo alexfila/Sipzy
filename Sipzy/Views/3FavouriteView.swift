@@ -36,13 +36,13 @@ struct FavouriteView: View {
                             }
                             .padding()
                             .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.8), Color.purple.opacity(0.8)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                RoundedRectangle(cornerRadius: 35)
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.purple.opacity(0.5)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .stroke(Color.white.opacity(0.6), lineWidth: 2)
+                                        RoundedRectangle(cornerRadius: 35)
+                                            .stroke(Color.black.opacity(0.2), lineWidth: 2)
                                     )
-                                    .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 4)
+                                    .shadow(color: Color.black.opacity(0.5), radius: 35, x: 0, y: 4)
                             )
                         }
                     }
