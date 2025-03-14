@@ -11,15 +11,29 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     private let distanceOptions = [1.0, 3.0, 5.0]
-    @State private var selectedDistanceIndex = 1 // Default to 3km
+    @State private var selectedDistanceIndex = 1
     
     var body: some View {
         ZStack {
             DynamicMesh()
             ZStack {
-                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
-                    .preferredColorScheme(.dark)
-                    .edgesIgnoringSafeArea(.all)
+                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: locationManager.clubLocations) { club in
+                    MapAnnotation(coordinate: club.coordinate) {
+                        VStack {
+                            Text(club.name)
+                                .font(.caption)
+                                .padding(5)
+                                .background(Color.black.opacity(0.7))
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 10, height: 10)
+                        }
+                    }
+                }
+                .preferredColorScheme(.dark)
+                .edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     LinearGradient(
@@ -58,7 +72,7 @@ struct MapView: View {
                 VStack {
                     Spacer()
                     distancePicker
-                        .padding(.bottom, 40) // Adjust based on safe area
+                        .padding(.bottom, 40)
                 }
             }
             .onAppear { locationManager.requestLocation() }

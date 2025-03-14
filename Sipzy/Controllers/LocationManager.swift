@@ -6,12 +6,16 @@ import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
+    private let geocoder = CLGeocoder()
+    
     @Published var location: CLLocation?
+    @Published var clubLocations: [ClubLocation] = []
     
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        geocodeClubs()
     }
     
     func requestLocation() {
@@ -29,4 +33,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location error: \(error.localizedDescription)")
     }
+    
+    private func geocodeClubs() {
+        for club in clubs {
+            geocoder.geocodeAddressString(club.address) { [weak self] placemarks, error in
+                if let coordinate = placemarks?.first?.location?.coordinate {
+                    DispatchQueue.main.async {
+                        self?.clubLocations.append(ClubLocation(name: club.name, coordinate: coordinate))
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct ClubLocation: Identifiable {
+    var id = UUID()
+    var name: String
+    var coordinate: CLLocationCoordinate2D
 }
