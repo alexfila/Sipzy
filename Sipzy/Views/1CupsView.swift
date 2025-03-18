@@ -19,6 +19,8 @@ struct CupsView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                     
                                     Text(club)
+                                        .lineLimit(2)
+                                        .truncationMode(.tail)
                                         .font(.title)
                                         .foregroundColor(.white)
                                     
@@ -26,19 +28,19 @@ struct CupsView: View {
                                     Button(action: { favorites[club]?.toggle() }) {
                                         Image(systemName: favorites[club] == true ? "star.fill" : "star")
                                             .resizable()
-                                            .frame(width: 70, height: 70)
+                                            .frame(width: 40, height: 40)
                                             .foregroundColor(.yellow)
                                     }
                                 }
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 35)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.purple.opacity(0.5)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.purple.opacity(0.7)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 35)
-                                                .stroke(Color.black.opacity(0.2), lineWidth: 2)
+                                                .stroke(Color.black.opacity(0.4), lineWidth: 2)
                                         )
-                                        .shadow(color: Color.black.opacity(0.5), radius: 35, x: 0, y: 4)
+                                        .shadow(color: Color.black.opacity(0.7), radius: 35, x: 0, y: 4)
                                 )
                             }
                         }

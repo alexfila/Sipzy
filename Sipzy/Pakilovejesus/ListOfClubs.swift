@@ -21,7 +21,7 @@ let clubs: [Contact] = [
     Contact(name: "Kestè", phoneNumber: "+39 346 494 9996", address: "Via San Giovanni Maggiore Pignatelli 26/27, 80134 Napoli", link: URL(string: "https://www.kestenapoli.com/")),
     Contact(name: "Kitebeer", phoneNumber: "+39 081 177 66 308", address: "Vico Medina 15, 80123 Napoli", link: URL(string: "https://www.kitebeer.it/")),
     Contact(name: "L'Antiquario", phoneNumber: "+39 081 7645390", address: "Via Vannella Gaetani 2, 80121 Napoli", link: URL(string: "https://lantiquarionapoli.superbexperience.com/")),
-    Contact(name: "Grand Tour cocktail boutique", phoneNumber: "+39 342 504 7868", address: "Via Santa Lucia 66/68, 80132 Napoli", link: URL(string: "https://lantiquarionapoli.superbexperience.com/")),
+    Contact(name: "Grand Tour cocktail", phoneNumber: "+39 342 504 7868", address: "Via Santa Lucia 66/68, 80132 Napoli", link: URL(string: "https://lantiquarionapoli.superbexperience.com/")),
     Contact(name: "Miami Barroom", phoneNumber: "+39 081 229 8332", address: "Via Raffaele Morgheen, 80129 Napoli", link: URL(string: "http://www.miamibarroom.it/")),
     Contact(name: "La Fesseria", phoneNumber: "+39 081 1882 3409", address: "Via Giovanni Paladino 17, 80138 Napoli", link: URL(string: "https://lafesseria.it/")),
     Contact(name: "Flanagan's Rooms", phoneNumber: "+39 375 512 2812", address: "Via Raffaele Morghen 31, 80127 Napoli", link: URL(string: "https://www.facebook.com/Flanagansrooms/")),

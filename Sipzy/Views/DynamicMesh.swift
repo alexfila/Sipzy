@@ -4,7 +4,7 @@ struct DynamicMesh: View {
     
     @State private var colors: [Color] = [
         Color.pink, Color.blue, Color.yellow,
-        Color.orange, Color.green, Color.purple,
+        Color.orange, Color.black, Color.purple,
         Color.cyan, Color.mint, Color.red
     ]
     
@@ -25,11 +25,11 @@ struct DynamicMesh: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onReceive(timer) { _ in
-                    withAnimation(.linear(duration: 4.5)) { // Faster transition for a playful effect
+                    withAnimation(.linear(duration: 16.5)) { // Faster transition for a playful effect
                         colors = colors.map { _ in
                             Color(hue: Double.random(in: 0...1),
-                                  saturation: 2.0,  // Full saturation for intense colors
-                                  brightness: 2.5)  // Maximum brightness for fun & vibrant effect
+                                  saturation: 2.5,
+                                  brightness: 1.0)
                         }
                     }
                 }
